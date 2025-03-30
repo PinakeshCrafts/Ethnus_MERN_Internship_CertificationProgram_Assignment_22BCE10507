@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .title {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            background: #f1f1f1;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+        }
+
+        .input-group .icon {
+            margin-right: 10px;
+        }
+
+        .input-group input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+        }
+
+        .login-btn {
+            width: 100%;
+            background: #0095f6;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .forgot {
+            color: #0095f6;
+            text-decoration: none;
+        }
+
+        .signup {
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .signup a {
+            color: #0095f6;
+            text-decoration: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2 class="title">Instagram</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <span class="icon">👤</span>
+          <input type="text" id="username" placeholder="Username" />
+        </div>
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input type="password" id="password" placeholder="Password" />
+        </div>
+        <button type="submit" class="login-btn">Log in</button>
+        <div class="options">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#" class="forgot">Forgot Password?</a>
+        </div>
+      </form>
+
+      <p class="signup">Don't have an account? <a href="#">Sign up here.</a></p>
+    </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); 
+
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            if (username === "" || password === "") {
+                alert("Please enter both username and password.");
+            } else {
+                alert("Login successful! (Demo)");
+            }
+        });
+    </script>
+  </body>
+</html>

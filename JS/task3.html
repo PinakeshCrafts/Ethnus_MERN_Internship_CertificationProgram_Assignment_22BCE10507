@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: left;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            width: 80px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background: #f7f8f9;
+            color: rgb(4, 4, 4);
+            border: 2px solid black; 
+            cursor: pointer;
+        }
+
+
+
+
+        #result {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <h2>Multiplication & Division Calculator</h2>
+      <label for="num1">1st Number:</label>
+      <input type="number" id="num1" />
+
+      <label for="num2">2nd Number:</label>
+      <input type="number" id="num2" />
+
+      <button onclick="calculate('multiply')">Multiply</button>
+      <button onclick="calculate('divide')">Divide</button>
+
+      <p>The Result Is: <span id="result"></span></p>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").innerText = "Please enter valid numbers!";
+                return;
+            }
+
+            if (operation === "multiply") {
+                result = num1 * num2;
+            } else if (operation === "divide") {
+                if (num2 === 0) {
+                    document.getElementById("result").innerText = "Cannot divide by zero!";
+                    return;
+                }
+                result = num1 / num2;
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+  </body>
+</html>

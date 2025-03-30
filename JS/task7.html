@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Train Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .animation {
+            display: inline-block;
+            position: relative;
+            animation: move 5s linear infinite;
+        }
+
+        @keyframes move {
+            0% { left: -200px; }
+            100% { left: 100%; }
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #3e8e41;
+        }
+
+        p {
+            color: #000080;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="animation">
+            <img id="train" src="https://cdn.pixabay.com/animation/2023/01/20/04/27/04-27-57-299_512.gif" alt="Train">
+        </div>
+        <div class="buttons">
+            <button onclick="startAnimation()">Start</button>
+            <button onclick="stopAnimation()">Stop</button>
+        </div>
+        <p>Click the following buttons to handle animation</p>
+    </div>
+    <script>
+        let train = document.getElementById("train");
+        let position = -200;
+        let interval = null;
+
+        function startAnimation() {
+            if (interval === null) {
+                interval = setInterval(() => {
+                    if (position < window.innerWidth) {
+                        position += 5;
+                        train.style.left = position + "px";
+                    } else {
+                        position = -200; 
+                    }
+                }, 50);
+            }
+        }
+
+        function stopAnimation() {
+            clearInterval(interval);
+            interval = null;
+        }
+    </script>
+</body>
+</html>
